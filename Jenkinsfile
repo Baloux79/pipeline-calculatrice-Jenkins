@@ -12,7 +12,7 @@ pipeline {
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
-    stage('Test') {
+        stage('Test') {
             agent {
                 docker {
                     image 'grihabor/pytest'
@@ -27,7 +27,7 @@ pipeline {
                 }
             }
         }
-    stage('Deliver') {
+        stage('Deliver') {
             agent any
             environment {
                 VOLUME = '$(pwd)/sources:/src'
@@ -49,7 +49,7 @@ pipeline {
             agent any
             steps {
                 echo "Main"
-            }
+              }
         }
     }
 }
